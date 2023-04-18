@@ -69,7 +69,7 @@ function exampleFour(object) {
 // const examFourBoolean = exampleFour(examOneArr);
 // console.log(examFourBoolean);
 
-//5번 각각 매개변수의 값을 합하여 최종적으로 value에 모든 값을 더하면 된다.
+//5번 각각 매개변수의 값을 합하여 최종적으로 value에 모든 매개변수의 값을 더하면 된다.
 function exampleFive(objectOne, ObjectTwo) {
   let value = 0;
   //objectOne의 모든 값을 더한 뒤 value에 넣기
@@ -85,17 +85,18 @@ function exampleFive(objectOne, ObjectTwo) {
       }
     }
   }
-
   return value;
 }
 
 let examOneArr = exampleOne(basicData.count, basicData.min, basicData.max);
-const testValue = exampleFive(
-  basicData,
-  exampleTwo(examOneArr, basicData.divideNumber)
-);
+const examTwoArr = exampleTwo(examOneArr, basicData.divideNumber);
+const testValue = exampleFive(basicData, examTwoArr);
 
-console.log("exampleOwn값은", examOneArr);
-console.log("exampleOwn 총합은", exampleThree(examOneArr));
+console.log("exampleTwo값은", examTwoArr);
+console.log(
+  "exampleTwo값의 각각의 키의 총 합들은",
+  `a값 => ${exampleThree(examTwoArr.a)} / b값 => ${exampleThree(examTwoArr.b)}`
+);
+console.log("exampleOwn의 총합은", exampleThree(examOneArr));
 console.log(`결과값은 ${exampleThree(examOneArr) + 26}가 나옵니다.`);
 console.log(testValue);
