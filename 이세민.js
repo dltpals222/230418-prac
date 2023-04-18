@@ -78,7 +78,11 @@ function exampleFive(objectOne, ObjectTwo) {
   }
 
   //objectTwo의 각 키마다의 값들이 숫자인지 확인 한 뒤에 true면 모든 값을 더한 후 value에 더하기
-  if (typeof ObjectTwo === "object" && Array.isArray(ObjectTwo) === false) {
+  if (
+    typeof ObjectTwo === "object" &&
+    Array.isArray(ObjectTwo) === false &&
+    ObjectTwo !== null
+  ) {
     for (let key in ObjectTwo) {
       if (exampleFour(ObjectTwo[key]) === true) {
         value += exampleThree(ObjectTwo[key]);
